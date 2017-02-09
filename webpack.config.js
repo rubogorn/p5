@@ -1,4 +1,5 @@
 // webpack.config.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack')
 const path = require('path')
 
@@ -11,6 +12,16 @@ const config = {
 	},
 	module: {
 		rules: [{
+			test: /\.scss$/,
+			use: [
+				'style-loader',
+				'css-loader',
+				'sass-loader',
+			]
+		}, {
+			test: /bootstrap\/dist\/js\/umd\//,
+			use: 'imports-loader?jQuery=jquery'
+		}, {
 			test: /\.js$/,
 			include: path.resolve(__dirname, 'src'),
 			use: [{
@@ -22,7 +33,10 @@ const config = {
 				}
 			}]
 		}]
-	}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({template: './index.html'})
+	]
 }
 
-module.exports = config
+module.exports = config;
