@@ -1,21 +1,20 @@
-<!-- index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<title>Neighborhood Map</title>
 </head>
-
 <body>
-	<div id="map"></div>
 	<nav>
-		<ul data-bind="foreach: locations">
-			<li data-bind="text: $index"></li>
-			<li data-bind="text: name"></li>
+		<ul data-bind="foreach: locations" class="placesList">
+			<a href="" data-bind="click: $parent.showLocations">
+				<li data-bind="text: name"></li>
+			</a>
 		</ul>
 	</nav>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js" async defer></script>
-	<script src="http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC8yjrGm9orQz4BMjuB1Gkn9cd5rLQS6Fs&libraries=places" async defer></script>
+	<div id="map"></div>
+	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8yjrGm9orQz4BMjuB1Gkn9cd5rLQS6Fs&v=3&callback=initMap"></script> -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8yjrGm9orQz4BMjuB1Gkn9cd5rLQS6Fs&v=3"></script>
 </body>
 </html>
