@@ -36,7 +36,7 @@ const config = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: './index.html' })]
+  plugins: [new HtmlWebpackPlugin({ template: './index.html', inject: false })]
 };
 
 module.exports = config;
