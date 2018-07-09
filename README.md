@@ -4,7 +4,7 @@
 * Google Map
 * Knockout
 
-###How to run the app
-```git clone https://github.com/rubogorn/p5.git```
-```run yarn```
-```run yarn start```
+### How to run the app
+* ```git clone https://github.com/rubogorn/p5.git```
+* ```run yarn```
+* ```run yarn start```
