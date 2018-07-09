@@ -1,8 +1,8 @@
-import venues from './data';
+import venues from "./data";
 
 export default class GoogleMap {
   constructor(initialPosition) {
-    this.initialize(document.getElementById('map'), {
+    this.initialize(document.getElementById("map"), {
       center: new google.maps.LatLng(initialPosition.lat, initialPosition.lng),
       zoom: 6,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -22,12 +22,17 @@ export default class GoogleMap {
       map: this.map,
       title: venue.name
     });
-    marker.addListener('click', this.handleMarker.bind(this, venue));
-    venue['marker'] = marker;
-    console.log(venue);
+    marker.addListener("click", this.handleMarker.bind(this, venue));
+
+    // add marker to venues
+    venue["marker"] = marker;
   }
 
   handleMarker(venue) {
+    // close infowindow
+    this.infoWindow && this.infoWindow.close();
+
+    // show infowindow
     this.infoWindow = new google.maps.InfoWindow({
       content: venue.name
     });

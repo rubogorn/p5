@@ -1,4 +1,4 @@
-import ko from 'knockout';
+import ko from "knockout";
 
 export default class LocationsViewModel {
   constructor(map, locations) {
@@ -9,6 +9,8 @@ export default class LocationsViewModel {
 
   showLocations(location) {
     this.map.panTo({ lat: location.coords.lat, lng: location.coords.lng });
-    google.maps.event.trigger(location.marker, 'click');
+
+    // trigger click on marker
+    google.maps.event.trigger(location.marker, "click");
   }
 }
